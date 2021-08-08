@@ -1,47 +1,69 @@
 # WikiPlinker
 
-# NOT EVEN SLIGHTLY FINISHED - BARELY STARTED
+#### [Live examples here](https://elliot-drew.github.io/wikiplinker/)
 
-Small JS library to make it easy to link words/phrases in your web pages to wikipedia articles.
+### About
 
-This is made very simple through the use of custom "data-" attributes in <a> tags.
+WikiPlinker uses two custom `data-` attributes to connect any html element you want on your site to
+Wikipedia.
 
-## data-wp-title
+### Getting Started
 
-Specify the exact title of the wikipedia page you wish to be linked to:
+You need to download both wikiplinker.js and wikiplinker.css. . Include wikiplinker.css.  in your `<head>` and
+wikiplinker.js at the bottom of your `<body>` tags so it loads after all your other content.
 
-```
-<a data-wp-title="Paris">Paris</a>
-```
+`data-wp-type` defines the method by which WikiPlinker interacts with the Wikipedia API, and `data-wp-term`
+can be the title of the Wikipedia page or the search term you want to connect to the element.
 
-Clicking the link will open the wikipedia page for paris in a new window.
+Just add the `wp-link` class to the element, and the two data attributes above. I'd recommend a `<span>` element
+for best results in text.
 
-Mousing over the link will show a short passage from wikipedia summarising the article/word.
-
-## data-wp-search
-
-If you don't know the exact title of the page you want to link to, use the data-wp-search attribute.
-
-```
-<a data-wp-search="Paris">Paris</a>
-```
-
-This will return and display the top 5 results in a tool tip for the user when clicked. They can then choose which page they wish to view.
-
-e.g. for the above, "Paris", "Paris Hilton", "Paris Saint-Germain F.C.", "Paris Agreement" and "Paris Commune".
-
-
-## data-wp-title
-
-Similar to data-wp-search, but acts like Googles "I'm feeling lucky" button - returns the first result from the search.
+If your page is static, thats all you need to do! However, if you are going to dynamically add or remove wp-link elements
+to/from the DOM you will need to call the `getLinks()` method of `wikiPlinker` whenever there is a change to ensure the links are created:
 
 ```
-<a data-wp-lucky="Paris">Paris</a>
+
+wikiPlinker.getLinks();
+
 ```
 
-Clicking the link will open the wikipedia page for paris in a new window.
+***
 
-Mousing over the link will show a short passage from wikipedia summarising the article/word.
+### Usage
+
+To get information for a specific page, use `data-wp-type="title"`.
+
+```
+
+<span class="wp-link" data-wp-type="title" data-wp-term="Paris">Paris</span>
+
+```
+
+
+
+To fetch only the top result for the search term defined in data-wp-term, use `data-wp-type="lucky"`.
+
+```
+
+<span class="wp-link" data-wp-type="lucky" data-wp-term="Paris">Paris</span>
+
+```
+
+To fetch the top 5 results for the search term defined in data-wp-term and display them in
+a tabular format, use `data-wp-type="search"`.
+
+```
+
+<span class="wp-link" data-wp-type="search" data-wp-term="Paris">Paris</span>
+
+```
+
+***
+
+### Styling
+
+All CSS styles can be found in wikiplinker.css. Should be fairly self explanatory.
+
 
 
 GNU GPLv3.0
