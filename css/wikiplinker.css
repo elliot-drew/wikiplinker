@@ -1,0 +1,51 @@
+.wp-popup{
+    position:absolute;
+    top:0px;
+    left:0px;
+    margin:15px auto;
+    width:300px;
+    height:auto;
+    font-family:verdana;
+    font-size:13px;
+    padding:5px 20px 20px 20px;
+    background-color:rgb(240,240,240);
+    /* border:2px solid grey; */
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    border-radius: 5%;
+    z-index:100000000000000000;
+}
+    
+.wp-cancel{
+    display:relative;
+    cursor:pointer;
+    margin:10px;
+    float:right;
+    height:10px;
+    width:14px;
+    padding:0 0 5px 0;
+    background-color:red;
+    text-align:center;
+    font-weight:bold;
+    font-size:11px;
+    color:white;
+    border-radius:3px;
+    z-index:100000000000000000;
+    }
+
+.wp-cancel:hover{
+    background:rgb(240, 145, 145);
+    }
+
+.wp-search-cell {
+    padding:2px;
+    margin:0;
+}
+.wp-search-table {
+    border-collapse: collapse;
+    width:100%;
+}
+
+.wp-link {
+    font-weight: bold;
+    color:rgb(24, 92, 138);
+}

@@ -1,0 +1,137 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>WikiPlinker</title>
+  <meta name="description" content="Examples of WikiPlinker usage">
+  <meta name="author" content="Elliot Drew">
+
+  <meta property="og:title" content="Examples of WikiPlinker usage">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Examples of WikiPlinker usage">
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  
+  <link rel="stylesheet" href="css/wikiplinker.css">
+  
+  <style>
+      body {
+          font-family: 'Courier New', Courier, monospace;
+      }
+      .container {
+        margin: auto;
+        width: 70%;
+        padding: 10px;
+        }
+        pre code {
+        background-color: #eee;
+        border: 1px solid #999;
+        display: block;
+        padding: 20px;
+        }
+  </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>
+            WikiPlinker
+        </h1>
+        <h4>
+            <a href="https://github.com/elliot-drew/wikiplinker">elliot-drew@github</a>
+        </h4>
+        <h3>
+            About
+        </h3>
+        <p>
+            WikiPlinker uses two custom data- attributes to connect any html element you want on your site to
+            Wikipedia. 
+        </p>
+        <h3>
+            Getting Started
+        </h3>
+        <p>
+            You need to download both wikiplinker.js and wikiplinker.css. . Include wikiplinker.css.  in your &lt;head&gt; and
+            wikiplinker.js at the bottom of your &lt;body&gt; tags so it loads after all your other content.
+        </p>
+        <p>
+            <b>data-wp-type</b> defines the method by which WikiPlinker interacts with the Wikipedia API, and <b>data-wp-term</b>
+            can be the title of the Wikipedia page or the search term you want to connect to the element.
+        </p>
+        <p>
+            Just add the <b>wp-link</b> class to the element, and the two data attributes above. I'd recommend a &lt;span&gt; element
+            for best results in text.
+        </p>
+        <p>
+            If your page is static, thats all you need to do! However, if you are going to dynamically add or remove wp-link elements
+            to/from the DOM you will need to call the <b>getLinks()</b> method of <b>wikiPlinker</b> whenever there is a change to ensure the links are created:
+        </p>
+        <pre>
+            <code>
+                wikiPlinker.getLinks();
+            </code>
+        </pre>
+        <hr>
+        <h3>
+            Usage
+        </h3>
+        
+        <p>
+            To get information for a specific page, use <b>data-wp-type="title"</b>.
+        </p>
+        <pre>
+            <code>
+                &lt;span class="wp-link" data-wp-type="title" data-wp-term="Paris"&gt;Paris&lt;/span&gt;
+            </code>
+        </pre>
+        <p>
+            Result: <span class="wp-link" data-wp-type="title" data-wp-term="Paris">Paris</span>
+        </p>
+        <br>
+        <br>
+        <p>
+            To fetch only the top result for the search term defined in data-wp-term, use <b>data-wp-type="lucky"</b>.
+        </p>
+        <pre>
+            <code>
+                &lt;span class="wp-link" data-wp-type="lucky" data-wp-term="Paris"&gt;Paris&lt;/span&gt;
+            </code>
+        </pre>
+        <p>
+            Result: <span class="wp-link" data-wp-type="lucky" data-wp-term="Paris">Paris</span>
+        </p>
+        <br>
+        <br>
+        <p>
+            To fetch the top 5 results for the search term defined in data-wp-term and display them in 
+            a tabular format, use <b>data-wp-type="search"</b>.
+        </p>
+        <pre>
+            <code>
+                &lt;span class="wp-link" data-wp-type="search" data-wp-term="Paris"&gt;Paris&lt;/span&gt;
+            </code>
+        </pre>
+        <p>
+            Result: <span class="wp-link" data-wp-type="search" data-wp-term="Paris">Paris</span>
+        </p>
+        <hr>
+        <h3>
+            Styling
+        </h3>
+        <p>
+            All CSS styles can be found in wikiplinker.css. Should be fairly self explanatory.
+        </p>
+    </div>
+    
+  
+  <script src="js/wikiplinker.js"></script>
+</body>
+</html>

@@ -1,10 +1,12 @@
 # WikiPlinker
 
+# NOT EVEN SLIGHTLY FINISHED - BARELY STARTED
+
 Small JS library to make it easy to link words/phrases in your web pages to wikipedia articles.
 
 This is made very simple through the use of custom "data-" attributes in <a> tags.
 
-## data-title
+## data-wp-title
 
 Specify the exact title of the wikipedia page you wish to be linked to:
 
