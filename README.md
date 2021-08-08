@@ -9,7 +9,7 @@ Wikipedia.
 
 ### Getting Started
 
-You need to download both wikiplinker.js and wikiplinker.css. . Include wikiplinker.css.  in your `<head>` and
+You need to download both wikiplinker.js and wikiplinker.css. Include wikiplinker.css in your `<head>` and
 wikiplinker.js at the bottom of your `<body>` tags so it loads after all your other content.
 
 `data-wp-type` defines the method by which WikiPlinker interacts with the Wikipedia API, and `data-wp-term`
